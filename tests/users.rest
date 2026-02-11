@@ -1,0 +1,40 @@
+### get all users
+GET http://localhost:4000/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNzE2NWM5YWQtMTM3MS00YjQ0LThiMmQtY2NhYWE0ODRlODNkIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGV4YW1wbGUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkeTloVG9RVHBlc1F2UEQvL1M0cFJ2dWJ3NHFoWHZocml6THNSZzY0YmNFTjIxd2xFMGZ0TGkiLCJyb2xlIjoidXNlciIsInNlY3JldCI6IjhlNTNmYzM2LWZlZDQtNGM1OC05NDhiLTQ2MDVlMDBkYjM5NiIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJkZXNjcmlwdGlvbiI6bnVsbCwicmVnIjoiMjAyNi0wMi0wNFQwODozOTowMC4wMDBaIiwibGFzdCI6IjIwMjYtMDItMDRUMTA6MDA6NTkuMzg2WiIsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0wMi0wNFQwODozOTowMC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wMi0wNFQxMDowMDo1OS4zODZaIn0sImlhdCI6MTc3MDE5OTI1OSwiZXhwIjoxNzcwMjAyODU5fQ.iVY4pn8DESMSO7xlao0fxBRtt7WbsXS9FHnBe9qf-SQ
+
+### get user by id
+GET http://localhost:4000/users/3b8a1469-ce1d-4f9d-8c6f-8bb467e05086
+Content-Type: application/json
+
+### post user
+POST http://localhost:4000/users/registration
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "Jelszo123",
+  "confirm": "Jelszo123"
+}
+
+### login
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "Jelszo123"
+}
+
+### update user by id
+PATCH http://localhost:4000/users/3b8a1469-ce1d-4f9d-8c6f-8bb467e05086
+Content-Type: application/json
+
+{
+
+    "name": "Pityu"
+
+}
+### DELETE user by id
+DELETE http://localhost:4000/users/1c67cfac-14ee-4b1c-91c7-5057c3f33175
