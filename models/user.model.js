@@ -1,90 +1,79 @@
 const { DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const {v4: uuidv4} =require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
-module.exports = (sequelize) =>{
+module.exports = (sequelize) => {
     const User = sequelize.define(
         'users',
         {
-            id:{
+            id: {
                 type: DataTypes.UUID,
                 primaryKey: true,
                 defaultValue: DataTypes.UUIDV4,
             },
-            name:{
+            name: {
                 type: DataTypes.STRING(100),
                 allowNull: false,
             },
-            email:{
+            email: {
                 type: DataTypes.STRING(100),
                 allowNull: false,
+                unique: true
             },
-            password:{
+            password: {
                 type: DataTypes.STRING(64),
                 allowNull: false,
             },
-            role:{
-                type: DataTypes.STRING(20),
+            role: {
+                type: DataTypes.ENUM('user', 'admin'),
                 allowNull: false,
                 defaultValue: 'user'
             },
-            secret:{
-                type: DataTypes.UUID,
-                allowNull: false,
-                defaultValue: DataTypes.UUIDV4
-            },
-            phone:{
-                type: DataTypes.STRING(30),
-                allowNull: true,
-            },
-            address:{
-                type: DataTypes.STRING(100),
-                allowNull: true,
-            },
-            description:{
-                type: DataTypes.TEXT,
-                allowNull: true,
-            },
-            reg:{
-                type: DataTypes.DATE,
-                allowNull: false,
-                defaultValue:  DataTypes.NOW
-            },
-            last:{
-                type: DataTypes.DATE,
-                allowNull: true,
-            },
-            status:{
+            status: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false,
                 defaultValue: true,
             },
+            createdAt: {
+                type: DataTypes.DATE,
+                allowNull: false,
+                defaultValue: DataTypes.NOW
+            },
+            updatedAt: {
+                type: DataTypes.DATE,
+                allowNull: true
+            },
+            lastLoginAt: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            }
         },
         {
-            timestamps:true,
-            hooks:{
+            timestamps: true,
+            hooks: {
                 beforeCreate: async (user) => {
                     user.password = await bcrypt.hash(user.password, 10);
                 },
                 beforeUpdate: async (user) => {
-                   if (user.changed('password')) {
+                    if (user.changed('password')) {
                         user.password = await bcrypt.hash(user.password, 10);
-                        user.secret = uuidv4();
                     }
                 }
             },
             defaultScope: {
-                attributes: { exclude: ['password', 'secret'] }
+                attributes: {
+                    exclude: ['password']
+                }
             },
             scopes: {
                 withPassword: {
-                    attributes: { }
+                    attributes: {}
                 }
             }
         }
     );
 
-    User.prototype.comparePassword = function(password) {
+    User.prototype.comparePassword = function (password) {
         return bcrypt.compare(password, this.password);
     };
 
