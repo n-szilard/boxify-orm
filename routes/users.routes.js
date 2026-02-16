@@ -80,9 +80,15 @@ router.post('/login', async (req, res) => {
 
         await user.update({ last: new Date() });
 
-        // TODO: token handling
         const token = generateToken(user);
-        res.status(200).json(token);
+        res.status(200).json({
+            token: token,
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            status: user.status
+        });
 
     } catch (error) {
         console.error('Error logging in user:', error);
