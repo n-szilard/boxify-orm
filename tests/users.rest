@@ -23,8 +23,8 @@ POST http://localhost:4000/users/login
 Content-Type: application/json
 
 {
-  "email": "john@example.com",
-  "password": "Jelszo123"
+  "email": "snicker@gmail.com",
+  "password": "Snicker"
 }
 
 ### update user by id
@@ -38,3 +38,46 @@ Content-Type: application/json
 }
 ### DELETE user by id
 DELETE http://localhost:4000/users/1c67cfac-14ee-4b1c-91c7-5057c3f33175
+
+### get all boxes
+GET http://localhost:4000/boxes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNzk2MGQ1MDktNzI0ZS00MzBlLTk1MTUtM2NkMzkxNmEyYzI0IiwibmFtZSI6IlNuaWNrZXIiLCJlbWFpbCI6InNuaWNrZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkRTkyaGRKNEZmSk5lZHNXdm1ENGk4dUVVUklSOVFEOTV5OThVOEZIcjRyUTdua2E4VVVPemEiLCJyb2xlIjoidXNlciIsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwibGFzdExvZ2luQXQiOm51bGx9LCJpYXQiOjE3NzEyMzI0NTksImV4cCI6MTc3MTIzNjA1OX0.XPeXb5SmTgT15y7uVdVXXX-Uxtv3BnkYpyNpyEF7oBs
+
+### get box by id
+GET http://localhost:4000/boxes/3b8a1469-ce1d-4f9d-8c6f-8bb467e05086
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNzk2MGQ1MDktNzI0ZS00MzBlLTk1MTUtM2NkMzkxNmEyYzI0IiwibmFtZSI6IlNuaWNrZXIiLCJlbWFpbCI6InNuaWNrZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkRTkyaGRKNEZmSk5lZHNXdm1ENGk4dUVVUklSOVFEOTV5OThVOEZIcjRyUTdua2E4VVVPemEiLCJyb2xlIjoidXNlciIsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwibGFzdExvZ2luQXQiOm51bGx9LCJpYXQiOjE3NzEyMzI0NTksImV4cCI6MTc3MTIzNjA1OX0.XPeXb5SmTgT15y7uVdVXXX-Uxtv3BnkYpyNpyEF7oBs
+
+### create box
+POST http://localhost:4000/boxes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNzk2MGQ1MDktNzI0ZS00MzBlLTk1MTUtM2NkMzkxNmEyYzI0IiwibmFtZSI6IlNuaWNrZXIiLCJlbWFpbCI6InNuaWNrZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkRTkyaGRKNEZmSk5lZHNXdm1ENGk4dUVVUklSOVFEOTV5OThVOEZIcjRyUTdua2E4VVVPemEiLCJyb2xlIjoidXNlciIsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwibGFzdExvZ2luQXQiOm51bGx9LCJpYXQiOjE3NzEyMzI0NTksImV4cCI6MTc3MTIzNjA1OX0.XPeXb5SmTgT15y7uVdVXXX-Uxtv3BnkYpyNpyEF7oBs
+
+{
+  "userId": "7960d509-724e-430e-9515-3cd3916a2c24",
+  "code": "BOX-001",
+  "labelType": "QR",
+  "lengthCm": 30,
+  "widthCm": 20,
+  "heightCm": 10,
+  "maxWeightKg": 5,
+  "location": "raktár A",
+  "note": "törékeny",
+  "status": "ACTIVE"
+}
+
+### update box by id
+PUT http://localhost:4000/boxes/3b8a1469-ce1d-4f9d-8c6f-8bb467e05086
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNzk2MGQ1MDktNzI0ZS00MzBlLTk1MTUtM2NkMzkxNmEyYzI0IiwibmFtZSI6IlNuaWNrZXIiLCJlbWFpbCI6InNuaWNrZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkRTkyaGRKNEZmSk5lZHNXdm1ENGk4dUVVUklSOVFEOTV5OThVOEZIcjRyUTdua2E4VVVPemEiLCJyb2xlIjoidXNlciIsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwibGFzdExvZ2luQXQiOm51bGx9LCJpYXQiOjE3NzEyMzI0NTksImV4cCI6MTc3MTIzNjA1OX0.XPeXb5SmTgT15y7uVdVXXX-Uxtv3BnkYpyNpyEF7oBs
+
+{
+  "name": "Updated Box",
+  "size": 12
+}
+
+### delete box by id
+DELETE http://localhost:4000/boxes/1c67cfac-14ee-4b1c-91c7-5057c3f33175
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNzk2MGQ1MDktNzI0ZS00MzBlLTk1MTUtM2NkMzkxNmEyYzI0IiwibmFtZSI6IlNuaWNrZXIiLCJlbWFpbCI6InNuaWNrZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkRTkyaGRKNEZmSk5lZHNXdm1ENGk4dUVVUklSOVFEOTV5OThVOEZIcjRyUTdua2E4VVVPemEiLCJyb2xlIjoidXNlciIsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwibGFzdExvZ2luQXQiOm51bGx9LCJpYXQiOjE3NzEyMzI0NTksImV4cCI6MTc3MTIzNjA1OX0.XPeXb5SmTgT15y7uVdVXXX-Uxtv3BnkYpyNpyEF7oBs
