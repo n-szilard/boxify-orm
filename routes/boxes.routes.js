@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const { Box, operatorMap } = require('../models/index')
 const { authenticate } = require('../middlewares/auth.middleware');
+const fs = require('node:fs');
+const path = require('node:path');
 
 // get all boxes
 router.get('/', authenticate, async (req, res) => {
@@ -18,6 +20,7 @@ router.get('/', authenticate, async (req, res) => {
 router.post('/', authenticate, async (req, res) => {
     try {
         const payload = req.body;
+        payload.code = generateBoxCode();
         if (!payload || Object.keys(payload).length === 0) {
             return res.status(400).json({ error: 'Request body is required' });
         }
@@ -70,4 +73,13 @@ router.delete('/:id', authenticate, async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+
+let generateBoxCode = () => {
+    let filePath = path.join(__dirname, '..', '/data', 'box-names.json')
+    let boxNames = JSON.parse(fs.readFileSync(filePath)).otszavas_fonevek;
+    let name = boxNames[Math.floor(Math.random()*boxNames.length)];
+    return `BOX-${name}`
+}
+
 module.exports = router;

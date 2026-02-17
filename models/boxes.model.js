@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
             code: {
                 type: DataTypes.STRING(9),
                 allowNull: false,
-                unique: true,
+                unique: 'code',
             },
             labelType: {
                 type: DataTypes.ENUM('QR', 'BARCODE'),
@@ -68,11 +68,7 @@ module.exports = (sequelize) => {
         },
         {
             timestamps: true,
-            indexes: [
-                {
-                    fields: ['userId']
-                }
-            ]
+            
         }
     );
 

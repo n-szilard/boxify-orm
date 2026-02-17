@@ -23,8 +23,8 @@ POST http://localhost:4000/users/login
 Content-Type: application/json
 
 {
-  "email": "snicker@gmail.com",
-  "password": "Snicker"
+  "email": "asd",
+  "password": "asd"
 }
 
 ### update user by id
@@ -52,11 +52,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkI
 ### create box
 POST http://localhost:4000/boxes
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNzk2MGQ1MDktNzI0ZS00MzBlLTk1MTUtM2NkMzkxNmEyYzI0IiwibmFtZSI6IlNuaWNrZXIiLCJlbWFpbCI6InNuaWNrZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkRTkyaGRKNEZmSk5lZHNXdm1ENGk4dUVVUklSOVFEOTV5OThVOEZIcjRyUTdua2E4VVVPemEiLCJyb2xlIjoidXNlciIsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wMi0xNlQwODo1NzoxOS4wMDBaIiwibGFzdExvZ2luQXQiOm51bGx9LCJpYXQiOjE3NzEyMzI0NTksImV4cCI6MTc3MTIzNjA1OX0.XPeXb5SmTgT15y7uVdVXXX-Uxtv3BnkYpyNpyEF7oBs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiYjdkYTI5NzUtYTI5My00NmViLTgyMjgtNDdhMmJlYjg1OWI2IiwibmFtZSI6InNkIiwiZW1haWwiOiJhc2QiLCJwYXNzd29yZCI6IiQyYiQxMCQ4NGljMGN5T0tsWmsxdlkuQkVmeE91YnBKWElaM3lRYUVHUUxqWGVFY05FVlhNTFhkbFpnMiIsInJvbGUiOiJ1c2VyIiwic3RhdHVzIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDI2LTAyLTExVDExOjE3OjQ5LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI2LTAyLTExVDExOjE3OjQ5LjAwMFoiLCJsYXN0TG9naW5BdCI6bnVsbH0sImlhdCI6MTc3MTMxNjc0NiwiZXhwIjoxNzcxMzIwMzQ2fQ.VG-r4DNt1vG9ahJJu72Xif_cE9sBdzBnXlePzG6diUs
 
 {
-  "userId": "7960d509-724e-430e-9515-3cd3916a2c24",
-  "code": "BOX-001",
+  "userId": "248da254-d0b0-4be9-9294-0c4b7e2312c0",
   "labelType": "QR",
   "lengthCm": 30,
   "widthCm": 20,
