@@ -76,6 +76,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkI
   "size": 12
 }
 
+
+### get boxes by field
+GET http://localhost:4000/boxes/userId/eq/248da254-d0b0-4be9-9294-0c4b7e2312c0
+Content-Type: application/json
+
 ### delete box by id
 DELETE http://localhost:4000/boxes/1c67cfac-14ee-4b1c-91c7-5057c3f33175
 Content-Type: application/json

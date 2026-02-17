@@ -74,6 +74,30 @@ router.delete('/:id', authenticate, async (req, res) => {
     }
 });
 
+// Get boxes by field
+router.get('/:field/:op/:value', authenticate, async (req, res) => {
+    try {
+        const { field, op, value } = req.params;
+        const operator = operatorMap[op];
+
+        if (!operator) {
+            return res.status(400).json({ message: 'Invalid operator' });
+        }
+
+        const where = {
+            [field]: {
+                [operator]: op === 'like' ? `%${value}%` : value,
+            },
+        };
+
+        const boxes = await Box.findAll({where});
+        console.log(boxes)
+        return res.status(200).json(boxes);
+    } catch (error) {
+        
+    }
+})
+
 
 let generateBoxCode = () => {
     let filePath = path.join(__dirname, '..', '/data', 'box-names.json')
