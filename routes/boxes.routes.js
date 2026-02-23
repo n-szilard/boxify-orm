@@ -46,7 +46,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // Update a box by id
-router.put('/:id', authenticate, async (req, res) => {
+router.patch('/:id', authenticate, async (req, res) => {
     try {
         const { id } = req.params;
         const payload = req.body;
