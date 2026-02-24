@@ -81,7 +81,7 @@ router.post('/', authenticate, async (req, res) => {
 });
 
 // PUT /api/boxitems/:id — quantity módosítása
-router.put('/:id', authenticate, async (req, res) => {
+router.patch('/:id', authenticate, async (req, res) => {
     try {
         const { quantity } = req.body;
         if (!quantity || quantity < 1) return res.status(400).json({ error: 'quantity legalább 1 kell' });
