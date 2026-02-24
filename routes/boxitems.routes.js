@@ -109,4 +109,19 @@ router.delete('/:id', authenticate, async (req, res) => {
     }
 });
 
+
+// Doboz kiürítése (minden BoxItem törlése egy boxId-vel)
+router.delete('/empty/:boxId', authenticate, async (req, res) => {
+    try {
+        const boxId = req.params.boxId;
+        const box = await Box.findByPk(boxId);
+        if (!box) return res.status(404).json({ error: 'Doboz nem található' });
+
+        await BoxItem.destroy({ where: { boxId } });
+        res.json({ message: 'Doboz kiürítve' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
