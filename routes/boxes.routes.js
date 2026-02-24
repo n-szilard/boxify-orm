@@ -91,7 +91,6 @@ router.get('/:field/:op/:value', authenticate, async (req, res) => {
         };
 
         const boxes = await Box.findAll({where});
-        console.log(boxes)
         return res.status(200).json(boxes);
     } catch (error) {
         

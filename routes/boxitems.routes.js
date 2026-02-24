@@ -116,6 +116,9 @@ router.delete('/empty/:boxId', authenticate, async (req, res) => {
         const boxId = req.params.boxId;
         const box = await Box.findByPk(boxId);
         if (!box) return res.status(404).json({ error: 'Doboz nem található' });
+        // ha a doboz üres
+        const boxItems = await BoxItem.findAll({ where: { boxId } });
+        if (boxItems.length === 0) return res.status(400).json({ error: 'Doboz már üres' });
 
         await BoxItem.destroy({ where: { boxId } });
         res.json({ message: 'Doboz kiürítve' });
